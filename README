@@ -1,0 +1,3 @@
+Initial Gazebo sim files
+Imarc_sim folders should be dropped in catkin src folder
+then run catkin_make
