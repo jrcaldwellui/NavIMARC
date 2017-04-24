@@ -1,0 +1,23 @@
+<launch>
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="-20"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+  <arg name="namespace" default="imarc"/>
+  <arg name="world_frame" default="/world"/> 
+
+  <group ns="$(arg namespace)">
+
+	<!-- converts xacro file into sdf -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find imarc_description)/urdf/imarc.xacro'" />
+
+	<!-- uses sdf to spawn imarc robot -->	
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -sdf -z 20 -model imarc" />
+
+  </group>
+
+
+</launch>
