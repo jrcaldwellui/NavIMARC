@@ -1,17 +1,33 @@
 <?xml version="1.0"?>
 <robot>
 	<gazebo>
-		<gravity>0</gravity>
 	    <!--<plugin name='buoyancy' filename='libBuoyancyPlugin.so'>
 			<fluid_density>999.1026</fluid_density>
 	    </plugin>-->
+		<plugin name="prop_force_r" filename="libprop_plugin.so">
+			<force>200</force>		
+		</plugin>
 	</gazebo>
+	
+	<gazebo reference="body">
+		<collision>
+		  <surface>
+		    <friction>
+		      <ode>
+		        <mu>0.1</mu>
+		        <mu2>0.1</mu2>
+		      </ode>
+		    </friction>
+		  </surface>
+		</collision>
+	</gazebo>
+
 
  <!-- hokuyo -->
   <gazebo reference="hokuyo_link">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
+      <visualize>false</visualize>
       <update_rate>10</update_rate>
       <ray>
         <scan>

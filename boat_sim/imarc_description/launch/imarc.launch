@@ -15,7 +15,7 @@
     <param name="robot_description" command="$(find xacro)/xacro '$(find imarc_description)/urdf/imarc.xacro'" />
 
 	<!-- uses sdf to spawn imarc robot -->	
-	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -sdf -z 20 -model imarc" />
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -sdf -z 2 -model imarc" />
 
   </group>
 
