@@ -10,6 +10,7 @@
 #include "ros/callback_queue.h"
 #include "ros/subscribe_options.h"
 #include "std_msgs/String.h"
+#include <math.h>
 
 
 namespace gazebo
@@ -20,15 +21,14 @@ namespace gazebo
 		public:	virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf)
 		{
 			std::cerr<<"\nThe prop plugin is attached to "<< _model->GetName() << "\n";
-			propForce = 100;
+			propForce = 50;
 
 			if(_sdf->HasElement("force"))
 				propForce = _sdf->Get<double>("force");
 			
 			this->leftPropOn =false;
 			this->rightPropOn = false;
-			this->currentLeftPropOn = false;
-			this->currentRightPropOn = false;
+
 			this->boatBody = _model->GetLink("body"); 
 			if(this->boatBody == NULL)
 			{
@@ -38,7 +38,7 @@ namespace gazebo
 			this->updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&PropPlugin::OnUpdate,this,_1));
 
 
-			// Initialize ros, if it has not already bee initialized.
+			// Initialize ros, if it has not already been initialized.
 			if (!ros::isInitialized())
 			{
 			  int argc = 0;
@@ -56,19 +56,18 @@ namespace gazebo
 			  ros::SubscribeOptions::create<std_msgs::String>(
 				  "/input",
 				  1,
-				  boost::bind(&PropPlugin::OnRosMsg, this, _1),
+				  boost::bind(&PropPlugin::OnKeyMsg, this, _1),
 				  ros::VoidPtr(), &this->rosQueue);
-			this->rosSub = this->rosNode->subscribe(so);
+
+			this->keyboardSub = this->rosNode->subscribe(so);
 
 			// Spin up the queue helper thread.
 			this->rosQueueThread =
 			  std::thread(std::bind(&PropPlugin::QueueThread, this));
 		}
 
-		/// \brief Handle an incoming message from ROS
-		/// \param[in] _msg A float value that is used to set the velocity
-		/// of the Velodyne.
-		public: void OnRosMsg(const std_msgs::StringConstPtr &_msg)
+		// Handles an incoming keyboard messages from ROS
+		public: void OnKeyMsg(const std_msgs::StringConstPtr &_msg)
 		{
 		  
 			if(_msg->data.compare("119")==0)
@@ -96,6 +95,7 @@ namespace gazebo
 			}else if(_msg->data.compare("112")==0)
 			{
 				std::cerr <<"----------------------\n";
+				std::cerr << "Rotation: " << this->boatBody->GetWorldPose().rot.GetAsEuler() * 180.0 / 3.14 << "\n";
 				std::cerr << "Force: " << this->boatBody->GetWorldForce() << "\n" ;
 				std::cerr << "Vel of Cog: " << this->boatBody->GetWorldCoGLinearVel() <<"\n";
 				std::cerr << "Angular Vel: " << this->boatBody->GetWorldAngularVel() <<"\n";
@@ -117,42 +117,38 @@ namespace gazebo
 
 		public: void OnUpdate(const common::UpdateInfo &)
 		{
-			//std::cerr << this->boatBody->GetWorldForce() << "\n" << "left: " << leftPropOn << " right: " << rightPropOn << "\n" << currentLeftPropOn << currentRightPropOn << "\n";
-			if(currentLeftPropOn != leftPropOn || currentRightPropOn != rightPropOn)
-			{
-				std::cerr << this->boatBody->GetWorldForce() << "\n" << "left: " << leftPropOn << " right: " << rightPropOn << "\n" << currentLeftPropOn << currentRightPropOn << "\n";
-				this->boatBody->SetForce( math::Vector3(0,0,0) );
-				currentLeftPropOn = leftPropOn;
-				currentRightPropOn = rightPropOn;
-			}
 
+			double boatAngle = this->boatBody->GetWorldPose().rot.GetAsEuler().z;
+			math::Vector3 force = math::Vector3(propForce * cos(boatAngle), propForce * sin(boatAngle),0 );
+
+			//std::cerr << force << "\n";
 			if(leftPropOn)
 			{
-				this->boatBody->AddForceAtRelativePosition(math::Vector3(-propForce,0,0),math::Vector3(-1.219*0.5,-1/*-0.737*0.33*/,0));
+				this->boatBody->AddForceAtRelativePosition(force,math::Vector3(-1.219*0.5,-1/*-0.737*0.33*/,0));
+				
+				
 			}	
 			if(rightPropOn)
 			{
-				this->boatBody->AddForceAtRelativePosition(math::Vector3(-propForce,0,0),math::Vector3(-1.219*0.5,1/*0.737*0.33*/,0));
+				this->boatBody->AddForceAtRelativePosition(force,math::Vector3(-1.219*0.5,1/*0.737*0.33*/,0));
 			}	
 			
-		
-			
-			
-
-
-	//std::cerr<<"UPDATE event\n";
 			
 
 		}
 		
 		private: event::ConnectionPtr updateConnection;
+
 		private: physics::LinkPtr boatBody;
+		private: physics::LinkPtr propL;
+		private: physics::LinkPtr propR;
+
 
 		/// \brief A node use for ROS transport
 		private: std::unique_ptr<ros::NodeHandle> rosNode;
 
 		/// \brief A ROS subscriber
-		private: ros::Subscriber rosSub;
+		private: ros::Subscriber keyboardSub;
 
 		/// \brief A ROS callbackqueue that helps process messages
 		private: ros::CallbackQueue rosQueue;
@@ -163,8 +159,6 @@ namespace gazebo
 		private: bool leftPropOn;
 		private: bool rightPropOn;
 
-		private: bool currentLeftPropOn;
-		private: bool currentRightPropOn;
 		private: double propForce;	
 	};
 

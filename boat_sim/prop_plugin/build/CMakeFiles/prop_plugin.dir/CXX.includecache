@@ -25,6 +25,8 @@ ros/subscribe_options.h
 /home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/ros/subscribe_options.h
 std_msgs/String.h
 /home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/std_msgs/String.h
+math.h
+-
 
 /opt/ros/kinetic/include/ros/advertise_options.h
 ros/forwards.h
