@@ -31,6 +31,8 @@ int main(int argc, char *argv[]) try
     ROS_INFO("expected rotation frequency: %d (Hz)", rotation_speed);
     
     //initialize all other nodes
+    // publishers: entropy, occupancy grid, mapmetadata
+    // subscriber: laser scan filter
     SlamGMapping::startLiveSlam();
     
     
