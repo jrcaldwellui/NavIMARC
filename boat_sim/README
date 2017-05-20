@@ -1,0 +1,5 @@
+Organization:  
+imarc_description: Contains specification of Marc1 boat model  
+imarc_gazebo: Contains gazebo world specification  
+prop_plugin: Gazebo pluging that simulates prop forces  
+ros_sim: simulation specific ros nodes (keyboard publisher)  
