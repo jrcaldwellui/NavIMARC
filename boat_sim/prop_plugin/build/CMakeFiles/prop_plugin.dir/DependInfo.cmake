@@ -1,34 +1,29 @@
 # The set of languages for which implicit dependencies are needed:
-set(CMAKE_DEPENDS_LANGUAGES
+SET(CMAKE_DEPENDS_LANGUAGES
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/prop_plugin.cc" "/home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/prop_plugin.dir/prop_plugin.cc.o"
+SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/prop_plugin.cc" "/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/prop_plugin.dir/prop_plugin.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
+SET(CMAKE_TARGET_DEFINITIONS
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_PACKAGE_NAME=\"Project\""
   )
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/opt/ros/kinetic/include"
-  "/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/usr/include/gazebo-7"
-  "/usr/include/sdformat-4.0"
-  "/usr/include/ignition/math2"
-  "/usr/include/OGRE"
-  "/usr/include/OGRE/Terrain"
-  "/usr/include/OGRE/Paging"
-  )
-
 # Targets to which this target links.
-set(CMAKE_TARGET_LINKED_INFO_FILES
+SET(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
-# Fortran module output directory.
-set(CMAKE_Fortran_TARGET_MODULE_DIR "")
+# The include file search paths:
+SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "/opt/ros/indigo/include"
+  "/usr/include/gazebo-2.2"
+  "/usr/include/sdformat-1.4"
+  )
+SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
+SET(CMAKE_ASM_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

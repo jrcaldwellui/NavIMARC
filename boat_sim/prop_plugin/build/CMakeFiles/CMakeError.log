@@ -1,24 +1,23 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
+Change Dir: /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_193c2/fast"
-/usr/bin/make -f CMakeFiles/cmTC_193c2.dir/build.make CMakeFiles/cmTC_193c2.dir/build
-make[1]: Entering directory '/home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_193c2.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_193c2.dir/CheckSymbolExists.c.o   -c /home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_193c2
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_193c2.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_193c2.dir/CheckSymbolExists.c.o  -o cmTC_193c2 -rdynamic 
-CMakeFiles/cmTC_193c2.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:/usr/bin/make "cmTryCompileExec2106692769/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2106692769.dir/build.make CMakeFiles/cmTryCompileExec2106692769.dir/build
+make[1]: Entering directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2106692769.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2106692769.dir/CheckSymbolExists.c.o   -c /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2106692769
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2106692769.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2106692769.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2106692769 -rdynamic 
+CMakeFiles/cmTryCompileExec2106692769.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_193c2.dir/build.make:97: recipe for target 'cmTC_193c2' failed
-make[1]: *** [cmTC_193c2] Error 1
-make[1]: Leaving directory '/home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_193c2/fast' failed
-make: *** [cmTC_193c2/fast] Error 2
+make[1]: Leaving directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2106692769] Error 1
+make: *** [cmTryCompileExec2106692769/fast] Error 2
 
-File /home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +33,127 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
+Change Dir: /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e7be4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e7be4.dir/build.make CMakeFiles/cmTC_e7be4.dir/build
-make[1]: Entering directory '/home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e7be4.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_e7be4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_e7be4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e7be4.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_e7be4.dir/CheckFunctionExists.c.o  -o cmTC_e7be4 -rdynamic -lpthreads 
+Run Build Command:/usr/bin/make "cmTryCompileExec4226283142/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec4226283142.dir/build.make CMakeFiles/cmTryCompileExec4226283142.dir/build
+make[1]: Entering directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec4226283142.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec4226283142.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec4226283142
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec4226283142.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec4226283142.dir/CheckFunctionExists.c.o  -o cmTryCompileExec4226283142 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_e7be4.dir/build.make:97: recipe for target 'cmTC_e7be4' failed
-make[1]: *** [cmTC_e7be4] Error 1
-make[1]: Leaving directory '/home/imarc/catkin_ws/src/imarc_git/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_e7be4/fast' failed
-make: *** [cmTC_e7be4/fast] Error 2
+make[1]: Leaving directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec4226283142] Error 1
+make: *** [cmTryCompileExec4226283142/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3543195568/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3543195568.dir/build.make CMakeFiles/cmTryCompileExec3543195568.dir/build
+make[1]: Entering directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3543195568.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3543195568.dir/CheckSymbolExists.c.o   -c /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3543195568
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3543195568.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3543195568.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3543195568 -rdynamic 
+CMakeFiles/cmTryCompileExec3543195568.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec3543195568] Error 1
+make: *** [cmTryCompileExec3543195568/fast] Error 2
+
+File /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2672277014/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2672277014.dir/build.make CMakeFiles/cmTryCompileExec2672277014.dir/build
+make[1]: Entering directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2672277014.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2672277014.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2672277014
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2672277014.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2672277014.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2672277014 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2672277014] Error 1
+make: *** [cmTryCompileExec2672277014/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3202960518/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3202960518.dir/build.make CMakeFiles/cmTryCompileExec3202960518.dir/build
+make[1]: Entering directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3202960518.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3202960518.dir/CheckSymbolExists.c.o   -c /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec3202960518
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3202960518.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3202960518.dir/CheckSymbolExists.c.o  -o cmTryCompileExec3202960518 -rdynamic 
+CMakeFiles/cmTryCompileExec3202960518.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec3202960518] Error 1
+make: *** [cmTryCompileExec3202960518/fast] Error 2
+
+File /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1467822640/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1467822640.dir/build.make CMakeFiles/cmTryCompileExec1467822640.dir/build
+make[1]: Entering directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1467822640.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1467822640.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1467822640
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1467822640.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1467822640.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1467822640 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/imarc/catkin_ws/src/NavIMARC/boat_sim/prop_plugin/build/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec1467822640] Error 1
+make: *** [cmTryCompileExec1467822640/fast] Error 2
 
 

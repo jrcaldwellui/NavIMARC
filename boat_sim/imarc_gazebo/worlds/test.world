@@ -1,9 +1,9 @@
-<sdf version='1.6'>
+<sdf version='1.4'>
 
   <world name='default'>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
-      <pose frame=''>0 0 10 0 -0 0</pose>
+      <pose>0 0 10 0 -0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
       <specular>0.1 0.1 0.1 1</specular>
       <attenuation>
@@ -28,12 +28,9 @@
           <surface>
             <friction>
               <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
+                <mu>50</mu>
+                <mu2>25</mu2>
               </ode>
-              <torsional>
-                <ode/>
-              </torsional>
             </friction>
             <contact>
               <ode/>
@@ -62,13 +59,10 @@
         <gravity>1</gravity>
       </link>
     </model>
-    <gravity>0 0 -9.8</gravity>
-    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
-    <atmosphere type='adiabatic'/>
-    <physics name='default_physics' default='0' type='ode'>
+    <physics type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_update_rate>250</real_time_update_rate> 
     </physics>
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
@@ -86,26 +80,20 @@
       <sim_time>116 21000000</sim_time>
       <real_time>129 209497048</real_time>
       <wall_time>1493154588 56918840</wall_time>
-      <iterations>116021</iterations>
       <model name='ground_plane'>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
+        <pose>0 0 0 0 -0 0</pose>
         <link name='link'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+          <pose>0 0 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <light name='sun'>
-        <pose frame=''>0 0 10 0 -0 0</pose>
-      </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>6.11782 -6.04056 2.32 0 0.275643 2.35619</pose>
+        <pose>6.11782 -6.04056 2.32 0 0.275643 2.35619</pose>
         <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
       </camera>
     </gui>
   </world>
