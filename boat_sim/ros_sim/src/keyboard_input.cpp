@@ -5,6 +5,8 @@
 #include <sstream>
 #include <termios.h>
 
+//http://www.cplusplus.com/forum/unices/18395/
+//Reads and returns char without pressing enter
 int getch()
 {
   static struct termios oldt, newt;
@@ -19,6 +21,7 @@ int getch()
   return c;
 }
 
+// Returns val limited to range 0 to 100
 int ClampValue(int val)
 {
 	if(val > 100)
@@ -32,9 +35,47 @@ int ClampValue(int val)
 	return val;
 }
 
-/**
- * This tutorial demonstrates simple sending of messages over the ROS system.
- */
+//Modifies lDutyCycle and rDutyCycle based on value of in
+//
+// w: both inc
+// s: both dec
+//
+// q: left inc
+// a: left dec
+//
+// e: right inc
+// d: right dec
+void ProcessInput(char in,int &lDutyCycle,int &rDutyCycle, int stepSize = 20)
+{
+		if( in == 'w' )
+		{
+			lDutyCycle += stepSize;
+			rDutyCycle += stepSize;
+		}
+		else if(in == 's' )
+		{
+			lDutyCycle -= stepSize;
+			rDutyCycle -= stepSize;
+		}
+		else if(in == 'q' )
+		{
+			lDutyCycle += stepSize;
+		}
+		else if(in == 'e' )
+		{
+			rDutyCycle += stepSize;
+		}
+		else if(in == 'a' )
+		{
+			lDutyCycle -= stepSize;
+		}
+		else if(in == 'd' )
+		{
+			rDutyCycle -= stepSize;
+		}
+}
+
+
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "talker");
@@ -51,59 +92,21 @@ int main(int argc, char **argv)
   {
 	int in = getch();
 
-
-	
 	if(in)
 	{	
-		if( in == 'w')
-		{
-			lDutyCycle += 20;
-			rDutyCycle += 20;
-		}
-		else if(in == 's' )
-		{
-			lDutyCycle -= 20;
-			rDutyCycle -= 20;
-		}
-		else if(in == 'q' )
-		{
-			lDutyCycle += 20;
-		}
-		else if(in == 'e' )
-		{
-			rDutyCycle += 20;
-		}
-		else if(in == 'a' )
-		{
-			lDutyCycle -= 20;
-		}
-		else if(in == 'd' )
-		{
-			rDutyCycle -= 20;
-		}
-
-		/*std_msgs::String msg;
-		std::stringstream ss;
-		ss << in;
-		msg.data = ss.str();
-		*/
+		ProcessInput(in,lDutyCycle,rDutyCycle);
 
 		lDutyCycle = ClampValue(lDutyCycle);
-		rDutyCycle = ClampValue(rDutyCycle);
+		rDutyCycle = ClampValue(rDutyCycle);		
 		
 		std_msgs::Int8 lMsg;
 		std_msgs::Int8 rMsg;
 		lMsg.data = lDutyCycle;
 		rMsg.data = rDutyCycle;
 
-
-
-		//ROS_INFO("%d %d", leftPropOn,rightPropOn);
-
 	  	lPub.publish(lMsg);
 		rPub.publish(rMsg);
 	}
-
   
 	ros::spinOnce();
 

@@ -5,8 +5,6 @@
   <arg name="roll" default="0.0"/>
   <arg name="pitch" default="0.0"/>
   <arg name="yaw" default="0.0"/>
-
-  <arg name="namespace" default="imarc"/>
   <arg name="world_frame" default="/world"/> 
 
   
@@ -17,12 +15,20 @@
 	<!-- uses sdf to spawn imarc robot -->	
 	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -sdf -z 2 -model imarc" />
 
+	<!-- publishs to /tf, these give transfroms from the boat to object on the boat such as lidar and camera -->
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 	<node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />	
+d
+	<!-- publishes the odom tf frame, this gives transfrom from world to boat -->
+	<node pkg="ros_sim" type="odom" name="odom_publisher"/>
+
+	<!-- runs gmapping, publishes to topic /map -->
+	<node pkg="gmapping" type="slam_gmapping" name="gmapping_node">
+		<param name="scan" value="/imarc/laser/scan"/>
+		<param name="base_frame" value="body"/>
+	</node>
+
+	<!-- launch rviz -->	
 	<node name="rviz" pkg="rviz" type="rviz"/>
-<!--
-<group ns="$(arg namespace)">  
-</group>
--->
 
 </launch>

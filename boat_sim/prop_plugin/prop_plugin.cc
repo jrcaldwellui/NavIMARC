@@ -16,6 +16,15 @@
 
 namespace gazebo
 {
+	/*
+	* Gazebo plugin that creates two forces simplistically simulating a left and right 
+	* propeller
+
+	* subscribes to ROS topics: 	
+	* 	/l_duty_cycle int8 values 0 to 100 sets left propeller duty cycle in %
+	* 	/r_duty_cycle int8 values 0 to 100 sets right propeller duty cycle in % 
+	* 	/input string general keyboard input
+	*/
 	class PropPlugin : public ModelPlugin
 	{
 		public: PropPlugin(){}
@@ -122,31 +131,7 @@ namespace gazebo
 		// Handles an incoming keyboard messages from ROS
 		public: void OnKeyMsg(const std_msgs::StringConstPtr &_msg)
 		{
-		  /*
-			if(_msg->data.compare("119")==0)
-			{
-				std::cerr << "fwd\n";
-				leftPropOn = true;
-				rightPropOn = true;
-			}
-			else if(_msg->data.compare("97")==0 )
-			{
-				std::cerr << "left\n";
-				leftPropOn = true;
-				rightPropOn = false;
-			}
-			else if(_msg->data.compare("100")==0)
-			{
-				std::cerr << "right\n";
-				leftPropOn = false;
-				rightPropOn = true;
-			}else if(_msg->data.compare("115")==0)
-			{
-				std::cerr << "stop\n";
-				leftPropOn = false;
-				rightPropOn = false;
-			} */
-
+			//Prints info about boat model, key: p
 			if(_msg->data.compare("112")==0)
 			{
 				std::cerr <<"----------------------\n";
@@ -201,24 +186,25 @@ namespace gazebo
 		private: physics::LinkPtr boatBody;
 
 
-		/// \brief A node use for ROS transport
+		// A node use for ROS transport
 		private: std::unique_ptr<ros::NodeHandle> rosNode;
 
-		/// \brief A ROS subscriber
+		// ROS subscribers
 		private: ros::Subscriber keyboardSub;
 		private: ros::Subscriber rPropSub;
 		private: ros::Subscriber lPropSub;
 
-		/// \brief A ROS callbackqueue that helps process messages
+		// A ROS callbackqueue that helps process messages
 		private: ros::CallbackQueue rosQueue;
 
-		/// \brief A thread the keeps running the rosQueue
+		/// A thread the keeps running the rosQueue
 		private: std::thread rosQueueThread;
 		
+		// Current duty cycle
 		private: float rDutyCycle;
 		private: float lDutyCycle;
 
-
+		//Maximum propeller force, can be set in urdf
 		private: float maxPropForce;	
 	};
 

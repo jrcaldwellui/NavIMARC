@@ -57,7 +57,7 @@
   </gazebo>
 
 
-<!-- camera -->
+<!-- camera 
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
       <update_rate>1</update_rate>
@@ -73,11 +73,11 @@
           <far>300</far>
         </clip>
         <noise>
-          <type>gaussian</type>
+          <type>gaussian</type>-->
           <!-- Noise is sampled independently per pixel on each frame.
                That pixel's noise value is added to each of its color
                channels, which at that point lie in the range [0,1]. -->
-          <mean>0.0</mean>
+        <!--  <mean>0.0</mean>
           <stddev>0.007</stddev>
         </noise>
       </camera>
@@ -97,7 +97,7 @@
       </plugin>
     </sensor>
   </gazebo>
-
+-->
   <gazebo>
     <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
       <alwaysOn>true</alwaysOn>

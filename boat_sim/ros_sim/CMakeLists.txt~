@@ -10,7 +10,6 @@ project(ros_sim)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
-	tf
   std_msgs 
   genmsg
 	nav_msgs
