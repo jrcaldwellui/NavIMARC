@@ -24,9 +24,11 @@ d
 
 	<!-- runs gmapping, publishes to topic /map -->
 	<node pkg="gmapping" type="slam_gmapping" name="gmapping_node">
-		<remap from="scan" to="/imarc/laser/scan"/>
+		<remap from="scan" to="/scan"/>
 		<param name="base_frame" value="body"/>
-	</node>
+		<param name="angularUpdate" type="double"  value="0.0"/>
+		<param name="linearUpdate" type="double" value="0.0"/>
+	</node> 
 
 	<!-- launch rviz -->	
 	<node name="rviz" pkg="rviz" type="rviz"/>

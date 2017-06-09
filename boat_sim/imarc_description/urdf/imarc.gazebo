@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <robot>
-	<gazebo>
+	<!--<gazebo>
 		<plugin name="prop_force" filename="libprop_plugin.so">
 			<force>1000</force>		
 		</plugin>
-	</gazebo>
+	</gazebo>-->
 	
-	<gazebo reference="body_collision">
-		
+	<!--<gazebo reference="body_collision">		
 	  <surface>
 	    <friction>
 	      <ode>
@@ -16,11 +15,11 @@
 	      </ode>
 	    </friction>
 	  </surface>
-	</gazebo>
+	</gazebo>-->
 
 
  <!-- hokuyo -->
-  <gazebo reference="hokuyo_link">
+  <gazebo reference="laser_frame">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -40,7 +39,7 @@
           <resolution>0.01</resolution>
         </range>
         <noise>
-          <type>gaussian</type>
+          <type>gaussian</type> 
           <!-- Noise parameters based on published spec for Hokuyo lazer
                achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
                stddev of 0.01m will put 99.7% of samples within 0.03m of the true
@@ -50,8 +49,8 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/imarc/laser/scan</topicName>
-        <frameName>hokuyo_link</frameName>
+        <topicName>/scan</topicName>
+        <frameName>laser_frame</frameName>
       </plugin>
     </sensor>
   </gazebo>
