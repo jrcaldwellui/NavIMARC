@@ -125,6 +125,8 @@ include_directories(
 #   src/${PROJECT_NAME}/marc1.cpp
 # )
 
+add_executable(format_scan src/format_scan.cpp)
+target_link_libraries(format_scan ${catkin_LIBRARIES})
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure

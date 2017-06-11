@@ -11,7 +11,7 @@ class PosePub
 public:
     PosePub();
     void start();
-		void OnImuMsg(const sensor_msgs::Imu::ConstPtr& msg);
+	void OnImuMsg(const sensor_msgs::Imu::ConstPtr& msg);
 private:
 	ros::NodeHandle n;
 	ros::Publisher pose_pub;

@@ -24,7 +24,7 @@ d
 
 	<!-- runs gmapping, publishes to topic /map -->
 	<node pkg="gmapping" type="slam_gmapping" name="gmapping_node">
-		<remap from="scan" to="/scan"/>
+		<remap from="scan" to="/reformatted_scan"/>
 		<param name="base_frame" value="body"/>
 		<param name="angularUpdate" type="double"  value="0.0"/>
 		<param name="linearUpdate" type="double" value="0.0"/>
